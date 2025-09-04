@@ -1,5 +1,6 @@
 # DarkSec Logger
-![image](https://github.com/user-attachments/assets/fc0ac8cc-31ef-48ba-aaca-c9f7bb67d58a)
+![image](https://github.com/user-attachments/assets/0e11835b-897b-42ff-ac89-f8113fb9e6af)
+
 
 ![banner](https://img.shields.io/badge/DarkSec-Logger-00B050?style=for-the-badge&logo=matrix)
 ![license](https://img.shields.io/badge/License-MIT-black?style=for-the-badge)
