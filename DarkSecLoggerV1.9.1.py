@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
-# File: DarkSecLoggerV1.9.2_Refactored.py
-# DarkSec Logger v1.9.2 – Added Stop NGROK Button
+# File: DarkSecLoggerV1.9.1_Refactored.py
+# DarkSec Logger v1.9.1 – Added Stop NGROK Button
 # Features: Proxy-IP logging, Bot filter, AES-256 enc/dec, GUI/Silent, Scrollable GUI,
 #           LocalTunnel, Cloudflare (trycloudflare) tunnels, optional ngrok,
 #           improved log console, copy/paste, URL shortening, JSON log export/import,
@@ -56,7 +56,7 @@ try:
 except ImportError:
     HAS_SHORTENER = False
 
-APP_TITLE = "DarkSec Logger v1.9.2 – Human-Only JSON Logs & IP Tools"
+APP_TITLE = "DarkSec Logger v1.9.1 
 DEFAULT_PORT = 8000
 
 # Globals needed for the server handler
