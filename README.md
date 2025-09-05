@@ -1,4 +1,5 @@
-DarkSec Logger V1.9.3
+DarkSec Logger V1.9.3 by Null_Lyfe
+
 
 ![DarkSec Logger GUI showing IP Tools tab](https://github.com/user-attachments/assets/0e11835b-897b-42ff-ac89-f8113fb9e6af)
 
