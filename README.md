@@ -1,8 +1,8 @@
-DarkSec Logger V1.9.1
+DarkSec Logger V1.9.3
 
 ![DarkSec Logger GUI showing IP Tools tab](https://github.com/user-attachments/assets/0e11835b-897b-42ff-ac89-f8113fb9e6af)
 
-![banner](https://img.shields.io/badge/DarkSec%20Logger-v1.9.1-00B050?style=for-the-badge&logo=matrix)
+![banner](https://img.shields.io/badge/DarkSec%20Logger-v1.9.3-00B050?style=for-the-badge&logo=matrix)
 ![license](https://img.shields.io/badge/License-MIT-black?style=for-the-badge)
 
 **DarkSec Logger** is an advanced, image-based intelligence tool designed for authorized red-team operations and security research. It transforms a simple image into a powerful tracking asset, logging real client IPs (proxy-aware), filtering out bot traffic, and providing tools for immediate IP analysis.
@@ -60,7 +60,7 @@ sudo npm install -g localtunnel
 🚀 Quick Start Guide
  * Launch the Application
    ```bash
-   python3 DarkSecLoggerV1.9.1.py
+   python3 DarkSecLoggerV1.9.3.py
    ```
  * Start the Server
    * In the Server Control tab, click Select Image to choose the image you want to serve.
@@ -81,17 +81,17 @@ sudo npm install -g localtunnel
 The logger can also be run headlessly from the command line.
 # Minimal headless serve with LocalTunnel (random subdomain)
 ```bash
-python3 DarkSecLoggerV1.9.1.py --silent --image pic.jpg --localtunnel
+python3 DarkSecLoggerV1.9.3.py --silent --image pic.jpg --localtunnel
 ```
 
 # Headless with a chosen subdomain
 ```bash
-python3 DarkSecLoggerV1.9.1.py --silent --image pic.jpg --localtunnel --subdomain mylink
+python3 DarkSecLoggerV1.9.3.py --silent --image pic.jpg --localtunnel --subdomain mylink
 ```
 
 # Headless on a specific port with NGROK
 ```bash
-python3 DarkSecLoggerV1.9.1.py --silent --image pic.jpg --ngrok --port 8080
+python3 DarkSecLoggerV1.9.3.py --silent --image pic.jpg --ngrok --port 8080
 ```
 🧩 Tips & Best Practices
  * Unique IDs are Key: Always use a unique ?id= for each recipient or session to accurately correlate hits.
