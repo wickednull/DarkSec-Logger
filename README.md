@@ -99,6 +99,7 @@ python3 DarkSecLoggerV1.9.1.py --silent --image pic.jpg --ngrok --port 8080
  * Use the Doctor: If you encounter issues, run the Dependency Doctor from the Utilities tab to diagnose missing tools or libraries.
 📜 License
 This project is licensed under the MIT License. See the LICENSE file for details.
+
 🙌 Credits
  * LocalTunnel – https://github.com/localtunnel/localtunnel
  * PyCryptodome – https://pycryptodome.readthedocs.io/
