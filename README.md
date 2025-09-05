@@ -1,201 +1,95 @@
-# DarkSec Logger
-![image](https://github.com/user-attachments/assets/0e11835b-897b-42ff-ac89-f8113fb9e6af)
+#DarkSec Logger V1.9.1
 
+![DarkSec Logger GUI showing IP Tools tab](https://github.com/user-attachments/assets/0e11835b-897b-42ff-ac89-f8113fb9e6af)
 
-![banner](https://img.shields.io/badge/DarkSec-Logger-00B050?style=for-the-badge&logo=matrix)
+![banner](https://img.shields.io/badge/DarkSec%20Logger-v1.9.1-00B050?style=for-the-badge&logo=matrix)
 ![license](https://img.shields.io/badge/License-MIT-black?style=for-the-badge)
 
-**DarkSec Logger** is a stealthy, image-based intelligence tool for authorized red-team and research use. It turns any image into a “tripwire,” logging real client IPs (proxy-aware), tagging hits with unique IDs, and filtering bots/crawlers. It ships in two flavors:
+**DarkSec Logger** is an advanced, image-based intelligence tool designed for authorized red-team operations and security research. It transforms a simple image into a powerful tracking asset, logging real client IPs (proxy-aware), filtering out bot traffic, and providing tools for immediate IP analysis.
 
-- **DarkSec Logger (desktop GUI)** — Tkinter app for Linux/macOS with LocalTunnel & optional ngrok support, AES-256 log encryption/decryption, and a Dependency Doctor.
-- **DarkSec Mini Logger (web/mobile)** — Flask web dashboard optimized for phones/tablets with upload UI, LocalTunnel, live logs, and crypto tools.
-
-> ⚠️ **Legal/Ethical**: Use only on systems you own or have explicit permission to test. You are responsible for complying with all laws and policies.
+> ⚠️ **Legal & Ethical Use**: This tool is intended for professional use on systems you own or have explicit, documented permission to test. You are solely responsible for complying with all applicable laws, regulations, and ethical guidelines.
 
 ---
 
 ## ✨ Features
 
-- 🎯 **Image-based logging** – serve `.jpg/.png/.gif/.webp` as a tracking point
-- 🛰 **Proxy-aware IP** – respects `X-Forwarded-For` / `X-Real-IP` when behind tunnels
-- 🤖 **Bot filtering** – auto-tags previewers/crawlers (e.g., facebookexternalhit, Slackbot)
-- 🏷 **Per-click IDs** – append `?id=username` to correlate hits
-- 🔐 **AES-256 (EAX) encryption** – encrypt/download logs; decrypt later
-- 🚇 **LocalTunnel integration** – free public URL with optional subdomain
-- ☁️ **ngrok (optional)** – supported with stored auth token
-- 🧑‍⚕️ **Dependency Doctor** – checks Python/Tk/node/npm/lt/pyngrok with fix tips
-- 📱 **Mobile-ready** – separate web dashboard variant (Mini Logger)
-
----
-
-## 📁 Project Layout
-DarkSecLogger.py         # Desktop GUI app (Tkinter)
-darksec_logger_web.py    # Mini Logger (Flask web/mobile dashboard)
-README.md                # This file
+- 🎯 **Image-Based Logging** – Serve `.jpg`, `.png`, `.gif`, or `.webp` files as tracking points.
+- 💾 **Structured JSON Logs** – Captures detailed, easy-to-parse JSON data for every human interaction.
+- 🛰️ **Proxy-Aware IP Logging** – Accurately identifies the true client IP by respecting `X-Forwarded-For` and `X-Real-IP` headers.
+- 🤖 **Bot & Crawler Filtering** – Automatically identifies and tags traffic from bots (like `facebookexternalhit` or `Slackbot`), but only saves human interactions to log files.
+- 🕵️ **IP Lookup Tools** – Built-in `Whois` and `GeoIP` lookup tools to analyze captured IP addresses directly from the UI.
+- 🔐 **AES-256 (EAX) Encryption** – Securely encrypt and save log files for offline storage.
+- 🚇 **Built-in Tunneling** – Integrated support for **LocalTunnel**, **Cloudflare Tunnels**, and **NGROK** to easily expose the logger to the internet.
+- 🎭 **URL Shortening** – Optional URL masking to create less suspicious-looking links.
+- 🧑‍⚕️ **Dependency Doctor** – A utility that checks for all required dependencies and provides helpful installation commands.
 
 ---
 
 ## 🧰 Prerequisites
 
-### Linux (Parrot/Debian/Kali)
-```bash
-sudo apt update
-sudo apt install -y python3 python3-pip python3-tk nodejs npm
-python3 -m pip install --upgrade pip
+### System Dependencies
+First, ensure you have the necessary system packages installed.
 
-```
+#### Linux (Debian/Ubuntu/Kali)
+```bash
+sudo apt update && sudo apt install -y python3 python3-pip python3-tk nodejs npm whois curl
 
 macOS
+# Install Homebrew if you don't have it
+/bin/bash -c "$(curl -fsSL [https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh](https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh))"
 
-```bash
-# Install Homebrew if missing
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+# Install dependencies
+brew install python node whois
+brew install --cask python-tk
 
-# System deps
-brew install python node
+Python Packages
+Next, install the required Python libraries.
 python3 -m pip install --upgrade pip
+python3 -m pip install pycryptodome pyngrok pyshorteners
 
-# If Tkinter errors in GUI mode:
-brew install python-tk
-```
-Common Python Packages (both OSes)
-```bash
-# Required by both variants
-python3 -m pip install flask pycryptodome pyngrok
-```
-LocalTunnel CLI (both OSes)
+LocalTunnel CLI
+Finally, install the LocalTunnel command-line tool.
+sudo npm install -g localtunnel
 
-```bash
-npm install -g localtunnel
-# Verify
-lt --help
-```
-🚀 Quick Start (Copy/Paste)
+🚀 Quick Start Guide
+ * Launch the Application
+   python3 DarkSecLoggerV1.9.1.py
 
-A) Desktop GUI (DarkSec Logger)
-```bash
-# Run the desktop GUI
-python3 DarkSecLogger.py
-
-# In the app:
-# 1) Select Image  → choose an image to serve
-# 2) Start Server  → begins listening (default port 8000)
-# 3) Start LocalTunnel → get public URL like: https://sub.loca.lt
-# 4) Share this full link (include file + id):
-#    https://sub.loca.lt/yourImage.jpg?id=friend123
-```
-B) Web/Mobile (DarkSec Mini Logger)
-```bash
-# Start the Flask web dashboard (default http://127.0.0.1:5000/)
-python3 darksec_logger_web.py
-
-# From your phone/laptop:
-# - Open http://<host>:5000/
-# - Upload an image
-# - Start LocalTunnel from the dashboard
-# - Share the printed URL:
-#   https://sub.loca.lt/img/yourImage.jpg?id=friend123
-```
-🖥 DarkSec Logger (Desktop GUI)
-Run (GUI)
-```bash
-python3 DarkSecLogger.py
-```
-Workflow
-	1.	Select Image (the asset you want to serve).
-	2.	Start Server (default port 8000, changeable in the UI).
-	3.	Start LocalTunnel → copy the public URL shown in the log console.
-	4.	Share the full URL including the filename and ?id= tag:
- 
-```bash
-https://yoursub.loca.lt/yourImage.jpg?id=alpha01
-```
- 5.	Watch Live Logs: entries show [HUMAN]/[BOT], IP, UA, and your ID.
-
-
-Silent mode & CLI flags
-
-```bash
+ * Start the Server
+   * In the Server Control tab, click Select Image to choose the image you want to serve.
+   * Click Start Server.
+ * Expose to the Internet
+   * Go to the Tunneling tab.
+   * Click Start LocalTunnel (or Cloudflare/NGROK).
+   * A public URL (e.g., https://yoursub.loca.lt) will appear in the Logs tab.
+ * Construct and Share Your Tracking Link
+   * Combine the tunnel URL, the image filename, and a unique tracking ID.
+   * Example: https://yoursub.loca.lt/image.png?id=alpha01
+   * Share this link with your target.
+ * Monitor and Analyze
+   * As the link is accessed, live traffic will appear in the Logs tab.
+   * Human interactions are automatically added to the IP list in the IP Tools tab for further analysis.
+   * Use the "Save Logs as JSON" button in the Utilities tab to save your session data.
+🖥️ Command-Line Usage (Silent Mode)
+The logger can also be run headlessly from the command line.
 # Minimal headless serve with LocalTunnel (random subdomain)
-python3 DarkSecLogger.py --silent --image pic.jpg --localtunnel
+python3 DarkSecLoggerV1.9.1.py --silent --image pic.jpg --localtunnel
 
 # Headless with a chosen subdomain
-python3 DarkSecLogger.py --silent --image pic.jpg --localtunnel --subdomain dseclink
+python3 DarkSecLoggerV1.9.1.py --silent --image pic.jpg --localtunnel --subdomain mylink
 
-# Headless on a specific port + ngrok (optional)
-python3 DarkSecLogger.py --silent --image pic.jpg --ngrok --port 8080
-```
-Set ngrok auth token (optional)
-```bash
-python3 DarkSecLogger.py --set-ngrok-token YOUR_NGROK_TOKEN
-# or export env var:
-export NGROK_AUTHTOKEN="YOUR_NGROK_TOKEN"
-```
-Encrypt / Decrypt logs (GUI buttons)
-	•	Save Encrypted Logs → produces .log.enc using AES-256/EAX
-	•	Decrypt Logs → select .log.enc, enter password, save plaintext .txt
+# Headless on a specific port with NGROK
+python3 DarkSecLoggerV1.9.1.py --silent --image pic.jpg --ngrok --port 8080
 
-Dependency Doctor
-	•	Click Run Dependency Doctor to see status and suggested fixes for:
-	•	Python/Tkinter, PyCryptodome, pyngrok, node, npm, lt
-
-⸻
-
-📱 DarkSec Mini Logger (Web/Mobile)
-```bash
-python3 darksec_logger_web.py
-# Admin UI:
-# http://127.0.0.1:5000/  (or http://<LAN-IP>:5000/ from your phone)
-```
-Dashboard cards
-	•	Upload & Use Image — choose an asset to serve; dashboard shows a copyable share link.
-	•	LocalTunnel (Start/Stop) — optional subdomain; prints https://sub.loca.lt.
-	•	Encrypt Logs — download encrypted .log.enc (AES-256 EAX).
-	•	Decrypt Logs — upload .log.enc + password, download plaintext .txt.
-	•	Dependency Doctor — checks environment and shows command fixes.
-	•	Live Logs — auto-refreshes every ~1.5s; shows [HUMAN]/[BOT] IP/UA/ID.
-
-Share link format
-```bash
-https://yoursub.loca.lt/img/yourImage.jpg?id=beta02
-```
-📝 Examples
-
-Typical HUMAN hit
-```bash
-[2025-09-03 14:22:11] [HUMAN] IP: 203.0.113.54 | UA: Mozilla/5.0 | PATH: /img/test.png?id=alpha01 | ID: alpha01
-Typical BOT (preview)
-
-```
-Typical BOT (preview)
-```bash
-[2025-09-03 14:22:12] [BOT] IP: 157.240.23.35 | UA: facebookexternalhit/1.1 | PATH: /img/test.png | ID:
-```
-🧩 Tips & Caveats
-	•	Always include the filename in the shared link (helps bypass some caches).
-	•	Append a unique ?id= per recipient/session to correlate hits.
-	•	Expect link previews: many chat apps request URLs via their own crawlers/CDNs → logged as [BOT].
-	•	Ask testers to open in a real browser for true client hits (not just chat preview).
-	•	Proxy awareness: When tunneled, origin IP is taken from X-Forwarded-For / X-Real-IP if present.
- 🔒 Security & Compliance
-	•	Use only with prior, explicit authorization.
-	•	Respect privacy and data retention policies.
-	•	Prefer dedicated test environments.
-	•	Consider storing logs encrypted by default and rotating keys/passwords.
-
+🧩 Tips & Best Practices
+ * Unique IDs are Key: Always use a unique ?id= for each recipient or session to accurately correlate hits.
+ * Link Previews: Be aware that many chat applications (Slack, Discord, etc.) will "preview" a link by visiting it with their own bot. These hits will be logged and correctly tagged as [BOT], but won't be saved to your JSON file.
+ * Use the Doctor: If you encounter issues, run the Dependency Doctor from the Utilities tab to diagnose missing tools or libraries.
 📜 License
-MIT License
-
-Copyright (c) 2025 …
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the “Software”), to deal
-in the Software without restriction… (standard MIT terms)
-
+This project is licensed under the MIT License. See the LICENSE file for details.
 🙌 Credits
-
-	•	LocalTunnel — https://github.com/localtunnel/localtunnel
-	•	PyCryptodome — https://pycryptodome.readthedocs.io/
-	•	Flask — https://flask.palletsprojects.com/
-
+ * LocalTunnel – https://github.com/localtunnel/localtunnel
+ * PyCryptodome – https://pycryptodome.readthedocs.io/
+ * pyngrok - https://pyngrok.readthedocs.io/
+<!-- end list -->
 
