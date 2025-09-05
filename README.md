@@ -31,7 +31,7 @@ DarkSec Logger V1.9.3 by Null_Lyfe
 ### System Dependencies
 First, ensure you have the necessary system packages installed.
 
-#### Linux (Debian/Ubuntu/Kali)
+#### Linux (Debian/Ubuntu/Parrot/Kali)
 ```bash
 sudo apt update && sudo apt install -y python3 python3-pip python3-tk nodejs npm whois curl
 ```
