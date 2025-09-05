@@ -33,28 +33,35 @@ First, ensure you have the necessary system packages installed.
 #### Linux (Debian/Ubuntu/Kali)
 ```bash
 sudo apt update && sudo apt install -y python3 python3-pip python3-tk nodejs npm whois curl
-
+```
 macOS
+```bash
 # Install Homebrew if you don't have it
 /bin/bash -c "$(curl -fsSL [https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh](https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh))"
-
+```
 # Install dependencies
+```bash
 brew install python node whois
 brew install --cask python-tk
-
+```
 Python Packages
 Next, install the required Python libraries.
+```bash
 python3 -m pip install --upgrade pip
 python3 -m pip install pycryptodome pyngrok pyshorteners
+```
 
 LocalTunnel CLI
 Finally, install the LocalTunnel command-line tool.
+```bash
 sudo npm install -g localtunnel
+```
 
 🚀 Quick Start Guide
  * Launch the Application
+   ```bash
    python3 DarkSecLoggerV1.9.1.py
-
+   ```
  * Start the Server
    * In the Server Control tab, click Select Image to choose the image you want to serve.
    * Click Start Server.
@@ -73,14 +80,19 @@ sudo npm install -g localtunnel
 🖥️ Command-Line Usage (Silent Mode)
 The logger can also be run headlessly from the command line.
 # Minimal headless serve with LocalTunnel (random subdomain)
+```bash
 python3 DarkSecLoggerV1.9.1.py --silent --image pic.jpg --localtunnel
+```
 
 # Headless with a chosen subdomain
+```bash
 python3 DarkSecLoggerV1.9.1.py --silent --image pic.jpg --localtunnel --subdomain mylink
+```
 
 # Headless on a specific port with NGROK
+```bash
 python3 DarkSecLoggerV1.9.1.py --silent --image pic.jpg --ngrok --port 8080
-
+```
 🧩 Tips & Best Practices
  * Unique IDs are Key: Always use a unique ?id= for each recipient or session to accurately correlate hits.
  * Link Previews: Be aware that many chat applications (Slack, Discord, etc.) will "preview" a link by visiting it with their own bot. These hits will be logged and correctly tagged as [BOT], but won't be saved to your JSON file.
@@ -91,5 +103,5 @@ This project is licensed under the MIT License. See the LICENSE file for details
  * LocalTunnel – https://github.com/localtunnel/localtunnel
  * PyCryptodome – https://pycryptodome.readthedocs.io/
  * pyngrok - https://pyngrok.readthedocs.io/
-<!-- end list -->
+
 
