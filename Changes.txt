@@ -1,0 +1,61 @@
+# Changelog 📜
+
+All notable changes to this project will be documented in this file.
+
+---
+
+## [2.0] - The Campaign Update
+
+Version 2.0 marks a major architectural shift, transforming the tool from a simple logger into a robust utility for managing distinct tracking campaigns.
+
+### ✨ Added
+- **Campaign Management**: The core workflow is now centered around campaigns. Users can create, load, and manage separate campaigns, each with its own isolated set of logs and target profiles.
+- **Target Profiling**: Within each campaign, users can create unique target profiles with an associated name and notes. This allows for the generation of specific tracking links for different targets.
+- **Contextual Logging**: Logs are now automatically enriched with the name of the target profile that clicked the link, providing immediate context.
+- **Persistent Data Storage**: All campaigns, profiles, and logs are now automatically saved to a `campaigns.json` file, ensuring data persists between sessions.
+- **New "Campaigns" Tab**: A dedicated UI tab was added for creating campaigns and managing target profiles.
+- **Active Campaign Selector**: A dropdown menu was added to the "Server Control" tab to easily switch between active campaigns.
+
+### 🔄 Changed
+- The application's data is now stored in a `~/.darksec_logger/` directory instead of `~/.config/darksec_logger/`.
+- The IP Tools tab is now campaign-aware and sources its IP list from the currently active campaign.
+
+### ❌ Removed
+- **Standalone Log Files**: The manual "Save Logs as JSON" and "Load Logs from JSON" features have been removed, as this is now handled automatically by the campaign system.
+- **Log Encryption**: The feature to save and decrypt encrypted log files has been removed to streamline the new workflow.
+
+---
+
+## [1.9] - Structured Data & IP Intelligence
+
+This release focused on making the captured data more structured and actionable.
+
+### ✨ Added
+- **JSON Log Structure**: The logger now captures data as structured JSON objects instead of plain text lines.
+- **IP Tools Tab**: A new tab was added to perform **Whois** and **GeoIP** lookups on captured IP addresses.
+- **Human-Only Log Filtering (1.9.1)**: The JSON saving feature was refined to automatically exclude traffic from known bots, keeping the saved data clean.
+
+---
+
+## [1.8] - The Great Refactoring
+
+This was a foundational update that modernized the entire codebase and user interface.
+
+### ✨ Added
+- **Responsive Tabbed UI**: The original two-row toolbar was replaced with a modern, tabbed interface using `ttk` themed widgets. The layout now scales correctly when the window is resized.
+- **Quality of Life Features**: Right-click context menus for **Copy/Paste** were added to all text entry and log display widgets.
+- **URL Shortening**: Integrated `pyshorteners` to provide an option for masking tunnel URLs.
+
+### 🔄 Changed
+- **Object-Oriented Refactoring**: The entire script was rewritten from a procedural style into a cleaner, more maintainable object-oriented structure centered around a `DarkSecApp` class.
+
+---
+
+## [1.7] - Initial Release
+
+The first version of the tool with the core feature set.
+
+- **Core Functionality**: HTTP server to log IP addresses and User Agents.
+- **Tunneling Support**: Integration with LocalTunnel, Cloudflare Tunnels, and NGROK.
+- **Basic UI**: A simple two-row toolbar for application control.
+- **Security**: Included a "Dependency Doctor" to check for required tools and an option for AES-256 log encryption.
