@@ -1,0 +1,48 @@
+# ⚠️ DarkSec Logger – Legal Disclaimer
+
+DarkSec Logger is a research and educational project. It is developed and shared to help students, penetration testers, and cybersecurity researchers understand how IP logging, tunneling, and network analysis concepts function in controlled environments.  
+
+This software is **not** intended, nor should it ever be used, for malicious surveillance, spying, unauthorized data collection, or exploitation of individuals, companies, or networks.  
+
+---
+
+## Authorized Use Only
+- You may only run DarkSec Logger on **systems and networks you personally own** or where you have **explicit, written permission** from the owner or administrator to conduct testing.  
+- Any use outside of this context is considered **unauthorized** and may violate local, federal, or international law.  
+
+---
+
+## Prohibited Use
+- Do not use DarkSec Logger for unauthorized monitoring of individuals, corporations, or government systems.  
+- Do not use it to evade security measures, to conduct harassment, or for criminal or malicious purposes.  
+- Do not deploy it against production networks, cloud platforms, or any service you do not control.  
+
+---
+
+## Liability Waiver
+By downloading, compiling, cloning, modifying, or executing DarkSec Logger, you acknowledge and agree to the following:  
+
+- The creator(s), contributors, and maintainers of DarkSec Logger are **not responsible or liable** for any misuse of this tool.  
+- You assume **full responsibility** for any legal, financial, or ethical consequences that result from your use.  
+- The project is provided on an **"AS IS" basis**, without warranties or guarantees of any kind, express or implied.  
+
+---
+
+## User Responsibility
+- You are solely responsible for ensuring your use of DarkSec Logger complies with **all applicable laws and regulations** in your jurisdiction.  
+- You are expected to follow industry standards of **ethical hacking and responsible disclosure**.  
+- If you are unsure whether your intended use is legal, **do not proceed** until you consult with a qualified legal authority.  
+
+---
+
+## Educational Purpose
+DarkSec Logger is intended as:  
+- A proof-of-concept for demonstrating tunneling, proxy logging, and IP capture concepts.  
+- A tool for personal experimentation in **controlled labs and testbeds**.  
+- A way to learn about cybersecurity defense by understanding how attackers think and operate.  
+
+It is **not** a surveillance product, a commercial logger, or a spying tool.  
+
+---
+
+> ✅ **Bottom Line**: DarkSec Logger is for **education and authorized research only**. Unauthorized use is illegal. The developers take no responsibility for misuse. By using this project, you agree to hold the developers and contributors harmless against any and all liability.
