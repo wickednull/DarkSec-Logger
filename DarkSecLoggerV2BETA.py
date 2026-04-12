@@ -8,6 +8,7 @@
 #           Proxy/VPN/Tor detection (via IPinfo.io), Link cloaking with dynamic OG tags and custom templates,
 #           JA3 fingerprinting via mitmproxy, Analytics for platform tracking.
 # Use only on systems you own or have explicit permission to test.
+# make sure to pip install mitmproxy 
 
 import os
 import sys
@@ -23,6 +24,7 @@ import shutil
 import secrets
 import string
 import random
+from mitmproxy import http
 from pathlib import Path
 from http.server import HTTPServer, BaseHTTPRequestHandler
 from datetime import datetime
